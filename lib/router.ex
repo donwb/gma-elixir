@@ -30,11 +30,12 @@ defmodule Gma.Router do
     end
     
     get "/data" do
+        # Gawd fix this!  carry-over from old site
         json = """
         {
           "title":"Traci Browning, REALTOR",
           "tag-line":"Specializing in West Cobb, East Cobb, and North Atlanta",
-          "footer":"Copyright Good Move Atlanta 2014"
+          "footer":"Copyright Good Move Atlanta 2016"
         }
         """
         conn
