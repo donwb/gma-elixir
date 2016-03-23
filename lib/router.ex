@@ -13,7 +13,8 @@ defmodule Gma.Router do
     plug :dispatch
     
     get "/" do
-        send_resp(conn, 200, "I'm alive")
+        # send_resp(conn, 200, "I'm alive")
+        send_file(conn, 200, "priv/static/index.html")
     end
 
     match _ do
