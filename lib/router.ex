@@ -16,6 +16,18 @@ defmodule Gma.Router do
         # send_resp(conn, 200, "I'm alive")
         send_file(conn, 200, "priv/static/index.html")
     end
+    
+    get "/about" do
+        send_file(conn, 200, "priv/static/about.html")
+    end
+    
+    get "/contact" do
+        send_file(conn, 200, "priv/static/contact.html")
+    end
+    
+    get "/testimonials" do
+        send_file(conn, 200, "priv/static/testimonials.html")
+    end
 
     match _ do
         conn
