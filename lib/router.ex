@@ -28,6 +28,20 @@ defmodule Gma.Router do
     get "/testimonials" do
         send_file(conn, 200, "priv/static/testimonials.html")
     end
+    
+    get "/data" do
+        json = """
+        {
+          "title":"Traci Browning, REALTOR",
+          "tag-line":"Specializing in West Cobb, East Cobb, and North Atlanta",
+          "footer":"Copyright Good Move Atlanta 2014"
+        }
+        """
+        conn
+        |>put_resp_content_type("application/json")
+        |>send_resp(200, json)
+    end
+    
 
     match _ do
         conn
