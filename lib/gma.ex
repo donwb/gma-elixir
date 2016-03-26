@@ -9,11 +9,16 @@ defmodule Gma do
     children = [
       # Define workers and child supervisors to be supervised
       # worker(Gma.Worker, [arg1, arg2, arg3]),
+      # tree = [supervisor(PgTest.Repo, [])]
+      
+        
       worker(__MODULE__, [], function: :run),
+      supervisor(Gma.Repo, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
+    # opts = [name: PgTest.Sup, strategy: :one_for_one]
     opts = [strategy: :one_for_one, name: Gma.Supervisor]
     Supervisor.start_link(children, opts)
   end

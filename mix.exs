@@ -14,7 +14,7 @@ defmodule Gma.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :cowboy, :plug, :poison, :postgrex],
+    [applications: [:logger, :cowboy, :plug, :poison, :mariaex, :ecto],
      mod: {Gma, []}]
   end
 
@@ -31,6 +31,7 @@ defmodule Gma.Mixfile do
     [{:cowboy, "~> 1.0.0"},
      {:plug, "~> 0.12"},
      {:poison, "~> 1.4.0"},
-     {:postgrex, "~> 0.11.1"}]
+     {:mariaex, "~> 0.6.5"},
+     {:ecto, "~> 1.1.5"}]
   end
 end
