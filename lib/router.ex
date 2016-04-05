@@ -45,12 +45,8 @@ defmodule Gma.Router do
     
     get "/homes" do
     
-        d = Gma.Controller.test_query
-        IO.inspect(d)
-        
-        j = Poison.encode!(d)
-        
-        IO.puts(j)
+        j = Gma.Controller.test_query
+        |>Poison.encode!
         
         conn
         |>put_resp_content_type("application/json")
