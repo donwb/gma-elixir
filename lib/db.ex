@@ -3,6 +3,7 @@ defmodule Gma.Repo do
 end
 
 defmodule Home do
+    @derive {Poison.Encoder, only: [:city, :image, :display_order]}
     use Ecto.Schema
     
     schema "homes" do

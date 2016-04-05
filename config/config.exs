@@ -5,7 +5,7 @@ config :gma, Gma.Repo,
   adapter: Ecto.Adapters.MySQL,
   database: "gma",
   username: "root",
-  password: "!!",
+  password: "o2bnUF!!",
   hostname: "104.196.125.168"
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
