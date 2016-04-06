@@ -13,11 +13,13 @@ insert into homes (city, image, display_order) values ('Hiram', 'DSC_2076.jpg', 
 insert into homes (city, image, display_order) values ('Hiram', 'DSC_2057.jpg', 12);
 insert into homes (city, image, display_order) values ('Fulton', 'IMG_2430.jpg', 13);
 insert into homes (city, image, display_order) values ('Dallas', 'DSC_8650.jpg', 14);
-
-
 insert into homes (city, image, display_order) values ('Dekalb', 'DSC_8816.jpg', 15);
 insert into homes (city, image, display_order) values ('Atlanta', 'DSC_2035.jpg', 16);
 insert into homes (city, image, display_order) values ('Marietta', 'marietta.jpg', 17);
 insert into homes (city, image, display_order) values ('Cumming', 'chad-old.jpg', 18);
+
+
+insert into meta (title, tagline, footer) values ("Traci Browning, REALTOR", "Specializing in West Cobb, East Cobb, and North Atlanta", "Copyright Good Move Atlanta 2016");
+
 
 

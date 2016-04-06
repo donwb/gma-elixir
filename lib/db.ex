@@ -13,3 +13,15 @@ defmodule Home do
     end
 
 end
+
+defmodule Meta do
+    @derive {Poison.Encoder, only: [:title, :tagline, :footer]}
+    use Ecto.Schema
+    
+    schema "meta" do
+        field :title, :string
+        field :tagline, :string
+        field :footer, :string
+    end
+end
+

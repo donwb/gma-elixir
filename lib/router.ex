@@ -29,34 +29,27 @@ defmodule Gma.Router do
         send_file(conn, 200, "priv/static/testimonials.html")
     end
     
-    get "/data" do
-        # Gawd fix this!  carry-over from old site
-        json = """
-        {
-          "title":"Traci Browning, REALTOR",
-          "tag-line":"Specializing in West Cobb, East Cobb, and North Atlanta",
-          "footer":"Copyright Good Move Atlanta 2016"
-        }
-        """
-        conn
-        |>put_resp_content_type("application/json")
-        |>send_resp(200, json)
-    end
     
     get "/homes" do
     
-        j = Gma.Controller.test_query
+        j = Gma.Controller.get_all_homes
         |>Poison.encode!
         
         conn
         |>put_resp_content_type("application/json")
         |>send_resp(200, j)
         
-        
-        
-        
     end
     
+    get "/data" do
+    
+        j = Gma.Controller.get_meta
+        |>Poison.encode!
+        
+        conn
+        |>put_resp_content_type("application/json")
+        |>send_resp(200, j)
+    end
 
     match _ do
         conn
