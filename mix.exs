@@ -32,7 +32,8 @@ defmodule Gma.Mixfile do
      {:plug, "~> 0.12"},
      {:mariaex, "~> 0.6.5"},
      {:ecto, "~> 1.1.5"},
-     {:poison, "~> 1.5.2"}
+     {:poison, "~> 1.5.2"},
+     {:exrm, "~> 1.0.3"}
      ]
   end
 end

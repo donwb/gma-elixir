@@ -1,0 +1,55 @@
+
+=====
+===== LOGGING STARTED Wed Apr  6 21:50:09 UTC 2016
+=====
+Using /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma.sh
+Exec: /home/ubuntu/workspace/gma/rel/gma/erts-7.2/bin/erlexec -boot /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma -mode embedded -config /home/ubuntu/workspace/gma/rel/gma/running-config/sys.config -boot_var ERTS_LIB_DIR /home/ubuntu/workspace/gma/rel/gma/erts-7.2/../lib -env ERL_LIBS /home/ubuntu/workspace/gma/rel/gma/lib -pa /home/ubuntu/workspace/gma/rel/gma/lib/gma-0.0.1/consolidated -args_file /home/ubuntu/workspace/gma/rel/gma/running-config/vm.args -user Elixir.IEx.CLI -extra --no-halt +iex -- console
+Root: /home/ubuntu/workspace/gma/rel/gma
+/home/ubuntu/workspace/gma/rel/gma
+Erlang/OTP 18 [erts-7.2] [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
+
+Interactive Elixir (1.2.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(gma@donwb-gma-elixir-2767513)1> 
+21:51:10.223 [error] #PID<0.929.0> running Gma.Router terminated
+Server: gma-elixir-donwb.c9users.io:80 (http)
+Request: GET /
+** (exit) an exception was raised:
+    ** (UndefinedFunctionError) undefined function EEx.Engine.fetch_assign!/2 (module EEx.Engine is not available)
+        EEx.Engine.fetch_assign!([conn: %Plug.Conn{adapter: {Plug.Adapters.Cowboy.Conn, :...}, assigns: %{}, before_send: [], body_params: %Plug.Conn.Unfetched{aspect: :body_params}, cookies: %Plug.Conn.Unfetched{aspect: :cookies}, halted: false, host: "gma-elixir-donwb.c9users.io", method: "GET", owner: #PID<0.929.0>, params: %Plug.Conn.Unfetched{aspect: :params}, path_info: [], peer: {{10, 240, 0, 192}, 39494}, port: 80, private: %{}, query_params: %Plug.Conn.Unfetched{aspect: :query_params}, query_string: "", remote_ip: {10, 240, 0, 192}, req_cookies: %Plug.Conn.Unfetched{aspect: :cookies}, req_headers: [{"host", "gma-elixir-donwb.c9users.io:80"}, {"cache-control", "max-age=0"}, {"accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"}, {"upgrade-insecure-requests", "1"}, {"user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"}, {"accept-encoding", "gzip, deflate, sdch"}, {"accept-language", "en-US,en;q=0.8"}, {"cookie", "gsScrollPos="}, {"x-forwarded-proto", "http"}, {"x-forwarded-port", "80"}, {"x-forwarded-for", "99.135.101.36"}, {"connection", "keep-alive"}], request_path: "/", resp_body: nil, resp_cookies: %{}, resp_headers: [{"cache-control", "max-age=0, private, must-revalidate"}, {"content-type", "text/html; charset=utf-8"}], scheme: :http, script_name: [], secret_key_base: nil, state: :unset, status: nil}, frames: [%{app: :elixir, args: [], context: :all, file: "lib/file.ex", func: :stat!, index: 0, info: "File.stat!/2", line: 289, link: nil, snippet: nil}, %{app: :plug, args: [], context: :all, file: "lib/plug/adapters/cowboy/conn.ex", func: :send_file, index: 1, info: "Plug.Adapters.Cowboy.Conn.send_file/6", line: 39, link: nil, snippet: [{34, "    {:ok, req} = Request.reply(status, headers, body, req)\n", false}, {35, "    {:ok, nil, req}\n", false}, {36, "  end\n", false}, {37, "\n", false}, {38, "  def send_file(req, status, headers, path, offset, length) do\n", false}, {39, "    %File.Stat{type: :regular, size: size} = File.stat!(path)\n", true}, {40, "\n", false}, {41, "    length =\n", false}, {42, "      cond do\n", false}, {43, "        length == :all -> size\n", false}, {44, "        is_integer(length) -> length\n", false}]}, %{app: :plug, args: [], context: :all, file: "lib/plug/conn.ex", func: :send_file, index: 2, info: "Plug.Conn.send_file/5", line: 362, link: nil, snippet: [{357, "  end\n", false}, {358, "\n", false}, {359, "  def send_file(%Conn{adapter: {adapter, payload}, owner: owner} = conn, status, file, offset, length)\n", false}, {360, "      when is_binary(file) do\n", false}, {361, "    conn = run_before_send(%{conn | status: Plug.Conn.Status.code(status), resp_body: nil}, :file)\n", false}, {362, "    {:ok, body, payload} = adapter.send_file(payload, conn.status, conn.resp_headers, file, offset, length)\n", true}, {363, "    send owner, @already_sent\n", false}, {364, "    %{conn | adapter: {adapter, payload}, state: :sent, resp_body: body}\n", false}, {365, "  end\n", false}, {366, "\n", false}, {367, "  @doc \"\"\"\n", false}]}, %{app: :gma, args: [], context: :all, file: "lib/router.ex", func: :plug_builder_call, index: 3, info: "Gma.Router.plug_builder_call/2", line: 1, link: nil, snippet: [{1, "defmodule Gma.Router do\n", true}, {2, "    use Plug.Router\n", false}, {3, "    use Plug.Builder\n", false}, {4, "    \n", false}, {5, "    if Mix.env == :dev do\n", false}, {6, "        IO.puts(\"debug environment\")\n", false}]}, %{app: :gma, args: [], context: :all, file: "lib/plug/debugger.ex", func: :call, index: 4, info: "Gma.Router.call/2", line: 90, link: nil, snippet: []}, %{app: :plug, args: [], context: :all, file: "lib/plug/adapters/cowboy/handler.ex", func: :upgrade, index: 5, info: "Plug.Adapters.Cowboy.Handler.upgrade/4", line: 15, link: nil, snippet: [{10, "  def upgrade(req, env, __MODULE__, {transport, plug, opts}) do\n", false}, {11, "    conn = @connection.conn(req, transport)\n", false}, {12, "    try do\n", false}, {13, "      %{adapter: {@connection, req}} =\n", false}, {14, "        conn\n", false}, {15, "        |> plug.call(opts)\n", true}, {16, "        |> maybe_send(plug)\n", false}, {17, "\n", false}, {18, "      {:ok, req, [{:result, :ok} | env]}\n", false}, {19, "    catch\n", false}, {20, "      :error, value ->\n", false}]}, %{app: :cowboy, args: [], context: :all, file: "src/cowboy_protocol.erl", func: :execute, index: 6, info: ":cowboy_protocol.execute/4", line: 442, link: nil, snippet: [{437, "-spec execute(cowboy_req:req(), #state{}, cowboy_middleware:env(), [module()])\n", false}, {438, "\t-> ok.\n", false}, {439, "execute(Req, State, Env, []) ->\n", false}, {440, "\tnext_request(Req, State, get_value(result, Env, ok));\n", false}, {441, "execute(Req, State, Env, [Middleware|Tail]) ->\n", false}, {442, "\tcase Middleware:execute(Req, Env) of\n", true}, {443, "\t\t{ok, Req2, Env2} ->\n", false}, {444, "\t\t\texecute(Req2, State, Env2, Tail);\n", false}, {445, "\t\t{suspend, Module, Function, Args} ->\n", false}, {446, "\t\t\terlang:hibernate(?MODULE, resume,\n", false}, {447, "\t\t\t\t[State, Env, Tail, Module, Function, Args]);\n", false}]}], title: "File.Error", message: "could not read file stats priv/static/index.html: no such file or directory", session: nil, params: %{}], :title)
+        (plug) lib/plug/templates/debugger.eex:4: Plug.Debugger.template/1
+        (plug) lib/plug/debugger.ex:136: Plug.Debugger.render/5
+        (plug) lib/plug/debugger.ex:116: Plug.Debugger.__catch__/5
+        (plug) lib/plug/adapters/cowboy/handler.ex:15: Plug.Adapters.Cowboy.Handler.upgrade/4
+        (cowboy) src/cowboy_protocol.erl:442: :cowboy_protocol.execute/4
+
+21:51:16.858 [debug] SELECT m0.`id`, m0.`title`, m0.`tagline`, m0.`footer` FROM `meta` AS m0 [] OK query=370.5ms queue=0.2ms
+
+=====
+===== LOGGING STARTED Wed Apr  6 21:52:36 UTC 2016
+=====
+Using /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma.sh
+Exec: /home/ubuntu/workspace/gma/rel/gma/erts-7.2/bin/erlexec -boot /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma -mode embedded -config /home/ubuntu/workspace/gma/rel/gma/running-config/sys.config -boot_var ERTS_LIB_DIR /home/ubuntu/workspace/gma/rel/gma/erts-7.2/../lib -env ERL_LIBS /home/ubuntu/workspace/gma/rel/gma/lib -pa /home/ubuntu/workspace/gma/rel/gma/lib/gma-0.0.1/consolidated -args_file /home/ubuntu/workspace/gma/rel/gma/running-config/vm.args -user Elixir.IEx.CLI -extra --no-halt +iex -- console
+Root: /home/ubuntu/workspace/gma/rel/gma
+/home/ubuntu/workspace/gma/rel/gma
+Erlang/OTP 18 [erts-7.2] [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
+
+Interactive Elixir (1.2.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(gma@donwb-gma-elixir-2767513)1> 
+21:52:45.808 [error] Failed to start Ranch listener Gma.Router.HTTP in :ranch_tcp:listen([port: 8080]) for reason :eaddrinuse (address already in use)
+
+
+=====
+===== LOGGING STARTED Wed Apr  6 21:53:12 UTC 2016
+=====
+Using /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma.sh
+Exec: /home/ubuntu/workspace/gma/rel/gma/erts-7.2/bin/erlexec -boot /home/ubuntu/workspace/gma/rel/gma/releases/0.0.1/gma -mode embedded -config /home/ubuntu/workspace/gma/rel/gma/running-config/sys.config -boot_var ERTS_LIB_DIR /home/ubuntu/workspace/gma/rel/gma/erts-7.2/../lib -env ERL_LIBS /home/ubuntu/workspace/gma/rel/gma/lib -pa /home/ubuntu/workspace/gma/rel/gma/lib/gma-0.0.1/consolidated -args_file /home/ubuntu/workspace/gma/rel/gma/running-config/vm.args -user Elixir.IEx.CLI -extra --no-halt +iex -- console
+Root: /home/ubuntu/workspace/gma/rel/gma
+/home/ubuntu/workspace/gma/rel/gma
+Erlang/OTP 18 [erts-7.2] [source] [64-bit] [smp:8:8] [async-threads:10] [kernel-poll:false]
+
+Interactive Elixir (1.2.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(gma@donwb-gma-elixir-2767513)1> 
+21:53:16.073 [debug] SELECT m0.`id`, m0.`title`, m0.`tagline`, m0.`footer` FROM `meta` AS m0 [] OK query=382.4ms queue=0.1ms
+
+21:53:26.173 [error] Failed to start Ranch listener Gma.Router.HTTP in :ranch_tcp:listen([port: 8080]) for reason :eaddrinuse (address already in use)
+

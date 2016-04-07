@@ -1,0 +1,3 @@
+v1.
+{'Elixir.Poison.Encoder.Home',{impl,'Elixir.Poison.Encoder'}}.
+{'Elixir.Poison.Encoder.Meta',{impl,'Elixir.Poison.Encoder'}}.

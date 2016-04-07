@@ -1,0 +1,8 @@
+run_erl [2636] Wed Apr  6 21:53:12 2016
+Args before exec of shell:
+run_erl [2636] Wed Apr  6 21:53:12 2016
+argv[0] = sh
+run_erl [2636] Wed Apr  6 21:53:12 2016
+argv[1] = -c
+run_erl [2636] Wed Apr  6 21:53:12 2016
+argv[2] = exec "/home/ubuntu/workspace/gma/rel/gma/bin/gma" "console"
