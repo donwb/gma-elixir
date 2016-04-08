@@ -24,10 +24,17 @@ defmodule Gma do
   end
   
   def run do
-    {port, _} = Integer.parse(System.get_env("PORT"))
-    opts = [port: port]
+    p = System.get_env("PORT")
     
-    {:ok, _} = Plug.Adapters.Cowboy.http Gma.Router, [], opts
+    {port, _} = 
+      case p do
+        nil -> {3000, nil}
+        _ -> Integer.parse(p)
+      end
+      
+    IO.puts("port: #{port}" )
+    
+    {:ok, _} = Plug.Adapters.Cowboy.http Gma.Router, [], [port: port]
     
   end
   
