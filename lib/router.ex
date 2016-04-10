@@ -13,8 +13,9 @@ defmodule Gma.Router do
     plug :dispatch
     
     get "/" do
-        # send_resp(conn, 200, "I'm alive")
-        send_file(conn, 200, "priv/static/index.html")
+        # Path.join("#{:code.priv_dir(:your_app_name)}", "static/templates/receipt_template.html)
+        idx = Path.join("#{:code.priv_dir(:gma)}", "static/index.html")
+        send_file(conn, 200, idx)
     end
     
     get "/about" do
