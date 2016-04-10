@@ -13,21 +13,23 @@ defmodule Gma.Router do
     plug :dispatch
     
     get "/" do
-        # Path.join("#{:code.priv_dir(:your_app_name)}", "static/templates/receipt_template.html)
         idx = Path.join("#{:code.priv_dir(:gma)}", "static/index.html")
         send_file(conn, 200, idx)
     end
     
     get "/about" do
-        send_file(conn, 200, "priv/static/about.html")
+        abt = Path.join("#{:code.priv_dir(:gma)}", "static/about.html")
+        send_file(conn, 200, abt)
     end
     
     get "/contact" do
-        send_file(conn, 200, "priv/static/contact.html")
+        cts = Path.join("#{:code.priv_dir(:gma)}", "static/contact.html")
+        send_file(conn, 200, cts)
     end
     
     get "/testimonials" do
-        send_file(conn, 200, "priv/static/testimonials.html")
+        test = Path.join("#{:code.priv_dir(:gma)}", "static/testimonials.html")
+        send_file(conn, 200, test)
     end
     
     
